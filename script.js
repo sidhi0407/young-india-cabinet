@@ -17,25 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.addEventListener('click', () => {
       const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
       navToggle.setAttribute('aria-expanded', !expanded);
+      navToggle.classList.toggle('active');
       siteNav.classList.toggle('open');
-      
-      // If open, add styles to simulate modal/drawer
-      if (!expanded) {
-        siteNav.style.display = 'flex';
-        siteNav.style.flexDirection = 'column';
-        siteNav.style.position = 'fixed';
-        siteNav.style.top = '80px';
-        siteNav.style.left = '0';
-        siteNav.style.right = '0';
-        siteNav.style.background = 'rgba(11, 13, 16, 0.98)';
-        siteNav.style.padding = '40px 20px';
-        siteNav.style.borderBottom = '1px solid var(--border-color)';
-        siteNav.style.gap = '24px';
-        siteNav.style.height = 'calc(100vh - 80px)';
-        siteNav.style.zIndex = '999';
-      } else {
-        siteNav.removeAttribute('style');
-      }
     });
 
     // Close mobile nav when clicking a link
